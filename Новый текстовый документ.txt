@@ -1,0 +1,32 @@
+Пример поиска Rest API
+
+Получение результата для запроса machine
+http://localhost:3000/search?term=machine
+
+Пример запроса для Graph QL
+
+Поиск с учетом связанных терминов
+query {
+  searchResults(term: "node", includeRelated: true) {
+    name
+    description
+  }
+}
+
+
+Поиск без учета связанных терминов
+query {
+  searchResults(term: "Machine Learning", includeRelated: false) {
+    name
+    description
+  }
+}
+
+Вывод связанных терминов
+
+query {
+  relatedTerms(term: "Machine Learning") {
+    term
+  }
+}
+
